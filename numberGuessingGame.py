@@ -52,15 +52,19 @@ def guess_again():
 
 
 def guessing(guess):
-    guess = int(guess)
-    if guess == target:
-        victory()
+    try:
+        guess = int(guess)
+        if guess == target:
+            victory()
 
-    if guess > target:
-        too_big()
+        if guess > target:
+            too_big()
 
-    if guess < target:
-        too_small()
+        if guess < target:
+            too_small()
+    except ValueError:
+        add_text("Please enter a number between -100 and 100! \n")
+        guess_again()
 
 
 def goodbye():
